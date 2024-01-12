@@ -27,6 +27,8 @@ static struct {
 	/* Normal mode keys */
 
 	{ "exit", "esc", "Exit the currently active warpd session.", OPT_KEY },
+	// Windows: virtual keys (control / shift / alt / meta) can not be captured for now in a working mode.
+	{ "exit", "[", "Exit the currently active warpd session.", OPT_KEY },
 	{ "drag", "v", "Toggle drag mode (mnemonic (v)isual mode).", OPT_KEY },
 	{ "copy_and_exit", "c", "Send the copy key and exit (useful in combination with v).", OPT_KEY },
 	{ "accelerator", "a", "Increase the acceleration of the pointer while held.", OPT_KEY },
