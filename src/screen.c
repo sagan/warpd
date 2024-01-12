@@ -9,7 +9,10 @@ void screen_selection_mode()
 	const char *screen_chars = config_get("screen_chars");
 
 	platform->screen_list(screens, &n);
-	assert(strlen(screen_chars) >= n);
+	// assert(strlen(screen_chars) >= n);
+	if (strlen(screen_chars) < n) {
+		return;
+	}
 
 	for (i = 0; i < n; i++) {
 		struct hint hint;
