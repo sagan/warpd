@@ -88,6 +88,8 @@ struct input_event *normal_mode(struct input_event *start_ev, int oneshot)
 		"screen",
 		"scroll_down",
 		"scroll_up",
+		"scroll_left",
+		"scroll_right",
 		"start",
 		"top",
 		"up",
@@ -139,21 +141,29 @@ struct input_event *normal_mode(struct input_event *start_ev, int oneshot)
 		if (!ev)  {
 			continue;
 		} else if (config_input_match(ev, "scroll_down")) {
-			redraw(scr, mx, my, 1);
-
 			if (ev->pressed) {
-				scroll_stop();
 				scroll_accelerate(SCROLL_DOWN);
-			} else
-				scroll_decelerate();
-		} else if (config_input_match(ev, "scroll_up")) {
-			redraw(scr, mx, my, 1);
-
-			if (ev->pressed) {
+			} else {
 				scroll_stop();
+			}
+		} else if (config_input_match(ev, "scroll_up")) {
+			if (ev->pressed) {
 				scroll_accelerate(SCROLL_UP);
-			} else
-				scroll_decelerate();
+			} else {
+				scroll_stop();
+			}
+		} else if (config_input_match(ev, "scroll_left")) {
+			if (ev->pressed) {
+				scroll_accelerate(SCROLL_LEFT);
+			} else {
+				scroll_stop();
+			}
+		} else if (config_input_match(ev, "scroll_right")) {
+			if (ev->pressed) {
+				scroll_accelerate(SCROLL_RIGHT);
+			} else {
+				scroll_stop();
+			}
 		} else if (config_input_match(ev, "accelerator")) {
 			if (ev->pressed)
 				mouse_fast();

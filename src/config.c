@@ -42,7 +42,8 @@ static struct {
 	{ "hint", "x", "Activate hint mode while in normal mode (mnemonic: x marks the spot?).", OPT_KEY },
 	{ "hint2", "X", "Activate two pass hint mode.", OPT_KEY },
 	{ "grid", "g", "Activate (g)rid mode while in normal mode.", OPT_KEY },
-	{ "screen", "s", "Activate (s)creen selection while in normal mode.", OPT_KEY },
+	// active "screen" (s) in normal mode cause program crash in windows. Don't know why yet.
+	{ "screen", "", "Activate (s)creen selection while in normal mode.", OPT_KEY },
 
 	{ "left", "h", "Move the cursor left in normal mode.", OPT_KEY },
 	{ "down", "j", "Move the cursor down in normal mode.", OPT_KEY },
@@ -56,6 +57,8 @@ static struct {
 
 	{ "scroll_down", "e", "Scroll down key.", OPT_KEY },
 	{ "scroll_up", "r", "Scroll up key.", OPT_KEY },
+	{ "scroll_left", "q", "Scroll left key.", OPT_KEY },
+	{ "scroll_right", "w", "Scroll right key.", OPT_KEY },
 
 	{ "cursor_color", "#FF4500", "The color of the pointer in normal mode (rgba hex value).", OPT_STRING },
 
