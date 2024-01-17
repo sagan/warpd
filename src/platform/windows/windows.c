@@ -345,7 +345,9 @@ static void mouse_get_position(screen_t *_scr, int *x, int *y)
 	GetCursorPos(&p);
 
 	struct screen *scr = wn_get_screen_at(p.x, p.y);
-	assert(scr);
+	if( scr == NULL ) {
+		return;
+	}
 
 	wn_screen_get_dimensions(scr, &sx, &sy, NULL, NULL);
 
